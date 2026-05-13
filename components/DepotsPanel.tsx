@@ -51,7 +51,6 @@ export default function DepotsPanel() {
           <DepotCard
             key={depot.name}
             name={depot.name}
-            district={depot.district}
             phone={depot.phone}
           />
         ))}

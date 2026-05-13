@@ -125,22 +125,20 @@ function Routing({
 
         addWaypoints: false,
 
-        draggableWaypoints: false,
-
         fitSelectedRoutes: true,
 
         show: false,
 
-        createMarker: () => null,
-
         lineOptions: {
-          styles: [
-            {
-              color: "#ef4444",
-              weight: 6,
-            },
-          ],
-        },
+  styles: [
+    {
+      color: "#ef4444",
+      weight: 6,
+    },
+  ],
+  extendToWaypoints: true,
+  missingRouteTolerance: 0,
+},
       });
 
     instance.addTo(map);

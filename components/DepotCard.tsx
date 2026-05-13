@@ -2,7 +2,7 @@ import { Phone, Building2 } from "lucide-react";
 
 type Props = {
   name: string;
-  district: string;
+  district?: string;
   phone: string;
 };
 

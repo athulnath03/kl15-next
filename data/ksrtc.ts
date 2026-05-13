@@ -80,7 +80,7 @@ export const TOWNS: Record<
   "Paravoor North":     {hub:"Ernakulam", mins:28, aliases:["paravoor","north paravur","paravoor north"]},
   "Piravom":            {hub:"Ernakulam", mins:38, aliases:["piravom"]},
   "Koothattukulam":     {hub:"Ernakulam", mins:48, aliases:["koothattukulam"]},
-  "Kodungallur":        {hub:"Ernakulam", mins:35, aliases:["kodungallur"]},
+
 
   // ── THRISSUR ZONE ──
   "Thrissur":           {hub:"Thrissur", mins:0, aliases:["thrissur","trichur","tcr"]},
@@ -102,7 +102,6 @@ export const TOWNS: Record<
   "Pattambi":           {hub:"Palakkad", mins:30, aliases:["pattambi"]},
   "Ottapalam":          {hub:"Palakkad", mins:25, aliases:["ottapalam"]},
   "Shornur":            {hub:"Palakkad", mins:22, aliases:["shornur","shoranur"]},
-  "Mannarkkad":         {hub:"Palakkad", mins:35, aliases:["mannarkkad"]},
 
   // ── MALAPPURAM ZONE ──
   "Malappuram":         {hub:"Malappuram", mins:0, aliases:["malappuram"]},
