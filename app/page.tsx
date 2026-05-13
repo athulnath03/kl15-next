@@ -31,7 +31,7 @@ export default function HomePage() {
 
       <BottomNav
         activeTab={activeTab}
-        onChangeTab={setActiveTab}
+        onChangeTab={(tab) => setActiveTab(tab)}
       />
 
     </main>
