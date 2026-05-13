@@ -1,7 +1,9 @@
 "use client";
 
 type Props = {
-  onSwitchTab: (tab: "home" | "depots" | "map") => void;
+  onSwitchTab: (
+    tab: "home" | "depots" | "map" | "timings"
+  ) => void;
 };
 
 export default function HomePanel({ onSwitchTab }: Props) {
