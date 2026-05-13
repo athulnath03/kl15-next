@@ -7,9 +7,15 @@ import {
   Clock3,
 } from "lucide-react";
 
+type TabType =
+  | "home"
+  | "depots"
+  | "map"
+  | "timings";
+
 type Props = {
-  activeTab: string;
-  onChangeTab: (tab: string) => void;
+  activeTab: TabType;
+  onChangeTab: (tab: TabType) => void;
 };
 
 export default function BottomNav({
