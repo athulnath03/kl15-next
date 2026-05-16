@@ -10,8 +10,8 @@ export default function HomePanel({ onSwitchTab }: Props) {
   return (
     <section className="p-4 space-y-5">
 
-      {/* OLD HEADER (RESTORED) */}
-      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-red-600 to-red-700 p-6 text-white shadow-2xl">
+      {/* HEADER */}
+      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-red-600 to-red-700 p-6 text-white shadow-lg">
 
         <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
 
