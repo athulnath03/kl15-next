@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 type Props = {
   onSwitchTab: (
@@ -20,7 +21,13 @@ export default function HomePanel({ onSwitchTab }: Props) {
           <div className="flex items-center gap-3">
 
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-2xl shadow-lg">
-              🚌
+              <Image
+		  src="/icon.png"
+		  alt="KL15 Bus"
+		  width={56}
+		  height={56}
+		  className="h-14 w-14 rounded-2xl object-cover"
+		/>
             </div>
 
             <div>

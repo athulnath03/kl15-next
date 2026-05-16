@@ -7,7 +7,7 @@ const baloo = Baloo_2({
 
 export const metadata = {
   title: "KL15",
-  description: "Routes. Depots. Timings.",
+  description: "Find KSRTC depots qnd timings",
 };
 
 export default function RootLayout({
