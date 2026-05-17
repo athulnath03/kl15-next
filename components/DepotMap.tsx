@@ -1,5 +1,6 @@
 "use client";
 
+import RefreshMapControl from "./RefreshMapControl";
 import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
@@ -238,71 +239,22 @@ function DepotMapView({
       ? userPos
       : null;
 
-  // Refresh button below zoom controls
-  useEffect(() => {
-    const map = (window as any).__leaflet_map__;
-
-    if (!map) return;
-
-    const RefreshControl = L.Control.extend({
-      options: {
-        position: "topleft",
-      },
-
-      onAdd: function () {
-        const btn = L.DomUtil.create("button", "");
-
-        btn.innerHTML = "↻";
-
-        btn.style.width = "34px";
-        btn.style.height = "34px";
-        btn.style.background = "#fff";
-        btn.style.border = "1px solid #e5e5e5";
-        btn.style.borderRadius = "8px";
-        btn.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)";
-        btn.style.cursor = "pointer";
-        btn.style.fontSize = "18px";
-        btn.style.fontWeight = "bold";
-        btn.style.marginTop = "10px";
-
-        btn.onclick = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          refreshLocation();
-        };
-
-        return btn;
-      },
-    });
-
-    const control = new RefreshControl();
-
-    map.addControl(control);
-
-    return () => {
-      map.removeControl(control);
-    };
-  }, [refreshLocation]);
-
   return (
     <MapContainer
       center={safeCenter}
       zoom={11}
       scrollWheelZoom
-      ref={(map) => {
-       if (map) {
-         (window as any).__leaflet_map__ = map;
-       }
-      }}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-
+    
+      <RefreshMapControl refreshLocation={refreshLocation} />
+    
       <MapController center={safeCenter} zoom={11} />
-
+    
       {safeUserPos && (
         <Marker position={safeUserPos} icon={userIcon}>
           <Popup closeButton={false}>
@@ -312,7 +264,7 @@ function DepotMapView({
           </Popup>
         </Marker>
       )}
-
+    
       {displayedDepots.map((depot) => (
         <Marker
           key={depot.name}
@@ -323,23 +275,11 @@ function DepotMapView({
           }}
         >
           <Popup closeButton={false}>
-            <div className="min-w-[120px] py-0.5">
-              <p className="font-bold text-[13px]">
-                {depot.name}
-              </p>
-
-              <p className="text-[11px] text-red-600 font-semibold">
-                {depot.distance.toFixed(1)} km away
-              </p>
-
-              <p className="text-[11px] text-neutral-400">
-                {depot.phone}
-              </p>
-            </div>
+            ...
           </Popup>
         </Marker>
       ))}
-
+    
       {safeUserPos && selectedDepot && (
         <Routing
           userPos={safeUserPos}
@@ -510,7 +450,7 @@ const fetchLocation = (force = false) => {
     if (cached) {
       try {
         const parsed = JSON.parse(cached) as [number, number];
-    
+
         if (
           Array.isArray(parsed) &&
           Number.isFinite(parsed[0]) &&
@@ -518,11 +458,11 @@ const fetchLocation = (force = false) => {
         ) {
           setUserPos(parsed);
           setMapCenter(parsed);
-    
+
           const sorted = sortDepots(parsed);
           setSortedDepots(sorted);
           setSelectedDepot(sorted[0]);
-    
+
           return;
         }
       } catch {}

@@ -13,7 +13,7 @@ export default function DepotsPanel() {
   );
 
   return (
-    <section className="min-h-screen bg-neutral-50 px-5 pt-10 pb-28 space-y-7">
+    <section className="min-h-screen px-5 pt-10 pb-10 space-y-7">
 
       {/* HEADER */}
       <div>
