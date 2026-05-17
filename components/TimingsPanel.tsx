@@ -75,7 +75,7 @@ export default function TimingsPanel() {
   const canSearch = from.trim() && to.trim();
 
   return (
-    <div className="min-h-screen bg-neutral-50 px-5 pt-10 pb-28">
+    <div className="min-h-screen px-5 pt-10 pb-28">
 
       {/* HEADER */}
       <div className="mb-7">
