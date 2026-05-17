@@ -289,8 +289,10 @@ function DepotMapView({
       center={safeCenter}
       zoom={11}
       scrollWheelZoom
-      whenReady={(e) => {
-        (window as any).__leaflet_map__ = e.target;
+      ref={(map) => {
+       if (map) {
+         (window as any).__leaflet_map__ = map;
+       }
       }}
       style={{ height: "100%", width: "100%" }}
     >
