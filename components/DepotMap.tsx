@@ -638,7 +638,7 @@ useEffect(() => {
   // prevents both maps mounting simultaneously
   if (isDesktop === null) {
     return (
-      <div className="flex h-screen items-center justify-center bg-neutral-50">
+      <div className="flex h-screen items-center justify-center ">
         <span className="w-8 h-8 border-2 border-neutral-200 border-t-red-600 rounded-full animate-spin" />
       </div>
     );
@@ -647,15 +647,15 @@ useEffect(() => {
   // ── DESKTOP ───────────────────────────────────────────
   if (isDesktop) {
     return (
-      <div className="flex h-screen overflow-hidden bg-neutral-50">
+      <div className="flex h-screen overflow-hidden ">
         {/* Left — full-height map */}
         <div className="w-1/2 xl:w-3/5 flex-shrink-0">
           <DepotMapView {...sharedMapProps} />
         </div>
 
         {/* Right — scrollable panel */}
-        <div className="w-1/2 xl:w-2/5 flex flex-col overflow-hidden bg-neutral-50">
-          <div className="px-5 pt-5 pb-3 bg-neutral-50 border-b border-neutral-100 space-y-3 flex-shrink-0">
+        <div className="w-1/2 xl:w-2/5 flex flex-col overflow-hidden ">
+          <div className="px-5 pt-5 pb-3  border-b border-neutral-100 space-y-3 flex-shrink-0">
             <SearchBar {...searchBarProps} />
             {resultLabel}
           </div>
