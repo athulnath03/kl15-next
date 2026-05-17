@@ -509,8 +509,8 @@ const fetchLocation = (force = false) => {
 
     if (cached) {
       try {
-        const parsed = JSON.parse(cached);
-
+        const parsed = JSON.parse(cached) as [number, number];
+    
         if (
           Array.isArray(parsed) &&
           Number.isFinite(parsed[0]) &&
@@ -518,11 +518,11 @@ const fetchLocation = (force = false) => {
         ) {
           setUserPos(parsed);
           setMapCenter(parsed);
-
+    
           const sorted = sortDepots(parsed);
           setSortedDepots(sorted);
           setSelectedDepot(sorted[0]);
-
+    
           return;
         }
       } catch {}
